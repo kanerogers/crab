@@ -1,10 +1,12 @@
 fn main() {
+    // Allocate our string
+    let crab = fifteen_megs_of_crab();
     loop {
-        // Allocate our string and get a fancy pointer to it.
-        let crab = Box::new(fifteen_megs_of_crab());
+        // Make a copy of our string
+        let larval = crab.clone();
 
         // No need to clean up the memory, it'll be fi--
-        Box::leak(crab);
+        std::mem::forget(larval);
     }
 }
 
